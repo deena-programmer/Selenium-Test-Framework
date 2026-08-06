@@ -20,8 +20,6 @@ pipeline {
 			}
 		  }
 		}
-	
-	stages{
 		stage('Checkout'){
 			steps{
 				git branch: 'main', url: 'https://github.com/deena-programmer/Selenium-Test-Framework.git'
