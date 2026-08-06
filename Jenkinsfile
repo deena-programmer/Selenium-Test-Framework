@@ -35,7 +35,7 @@ pipeline {
 			archiveArtifacts artifacts: '**src/test/resources/ExtentReport/*.html', fingerprint: true
 			junit 'target/surefire-reports/*.xml'
 		}
-		Success{
+		success{
 			emailext(
 				to: 'deenak2896@gmail.com',
 				subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
