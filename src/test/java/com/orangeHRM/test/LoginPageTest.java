@@ -39,7 +39,7 @@ public class LoginPageTest extends BaseClass{
 	@Test(dataProvider="inValidLoginData", dataProviderClass = DataProviders.class)
 	public void inValidLoginTest(String username, String password) {
 		
-		//ExtentManager.startTest("In-Vaild Login Test");  --This has been implemented in TestListener
+		//ExtentManager.startTest("In-Vaild Login Test!");  --This has been implemented in TestListener
 		System.out.println("Running testMethod2 on thread: "+ Thread.currentThread().getId());
 		ExtentManager.logStep("Navigating to login page entering username and password");
 		loginPage.login(username, password);
