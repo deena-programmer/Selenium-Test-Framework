@@ -31,8 +31,6 @@ import com.orangeHRM.utilities.LoggerManager;
 public class BaseClass {
 
 	protected static Properties prop;
-	// protected static WebDriver driver;
-	// private static ActionDriver actionDriver;
 
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	private static ThreadLocal<ActionDriver> actionDriver = new ThreadLocal<>();
@@ -53,9 +51,6 @@ public class BaseClass {
 				System.getProperty("user.dir") + "/src/main/resources/config.properties");
 		prop.load(fis);
 		logger.info("properties file loaded");
-
-		// Start the Extent report
-		// ExtentManager.getReporter(); --This has been implemented in TestListener
 	}
 
 	@BeforeMethod
@@ -72,13 +67,6 @@ public class BaseClass {
 		logger.debug("This is a debug message");
 		logger.fatal("This is a fatal message");
 		logger.warn("This is a warn message");
-
-		// Initialize the actionDriver only once
-		/*
-		 * if (actionDriver == null) { actionDriver = new ActionDriver(driver);
-		 * logger.info("ActionDriver instance is created." +
-		 * Thread.currentThread().getId()); }
-		 */
 
 		// Initialize the actionDriver for the currend THread
 		actionDriver.set(new ActionDriver(getDriver()));
@@ -172,13 +160,6 @@ public class BaseClass {
 
 		// maximize the browser
 		getDriver().manage().window().maximize();
-
-		// Navigate to URL
-//		try {
-//			getDriver().get(prop.getProperty("url"));
-//		} catch (Exception e) {
-//			System.out.println("Failed to navigate to the URL: " + e.getMessage());
-//		}
 		
 		if(seleniumGrid) {
 			getDriver().get(prop.getProperty("url_grid"));
@@ -199,9 +180,6 @@ public class BaseClass {
 		logger.info("WebDriver instance is closed.");
 		driver.remove();
 		actionDriver.remove();
-		// driver = null;
-		// actionDriver = null;
-		// ExtentManager.endTest(); --This has been implemented in TestListener
 	}
 
 	// Getter method for prop
@@ -209,9 +187,6 @@ public class BaseClass {
 		return prop;
 	}
 
-	/*
-	 * //Driver getter method public WebDriver getDriver() { return driver; }
-	 */
 	// Getter Method for WebDriver
 	public static WebDriver getDriver() {
 		if (driver.get() == null) {

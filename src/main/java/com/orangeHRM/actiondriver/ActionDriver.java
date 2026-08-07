@@ -49,8 +49,6 @@ public class ActionDriver {
 		try {
 			waitForElementToBeVisible(by);
 			applyBorder(by, "green");
-			// driver.findElement(by).clear();
-			// driver.findElement(by).sendKeys(value);
 			WebElement element = driver.findElement(by);
 			element.clear();
 			element.sendKeys(value);
@@ -97,16 +95,6 @@ public class ActionDriver {
 		return false;
 	}
 
-	// Method to check if an element is dispalyed
-	/*
-	 * public boolean isDisplayed(By by) { try { waitForElementToBeVisible(by);
-	 * boolean isDisplayed = driver.findElement(by).isDisplayed(); if (isDisplayed)
-	 * { System.out.println("Element is visible"); return isDisplayed; } else {
-	 * return isDisplayed; } } catch (Exception e) {
-	 * System.out.println("Element is not displayed: " + e.getMessage()); return
-	 * false; } }
-	 */
-	// Simplified the method and remove redundant conditions
 	public boolean isDisplayed(By by) {
 		try {
 			waitForElementToBeVisible(by);
